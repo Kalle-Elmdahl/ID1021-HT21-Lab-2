@@ -1,5 +1,14 @@
+/**
+ * @author Kalle Elmdahl 21/09/20 (updated 21/09/23)
+ * The code implements the organiseNumbers function
+ * The code is for an assignment from the KTH-course ID1020
+ * The code is based on examples from https://algs4.cs.princeton.edu/home/
+ */
 #include <stdio.h>
 
+/*
+    Used for testing the functions
+*/
 static void test();
 
 int main() {
@@ -7,17 +16,26 @@ int main() {
     return 0;
 }
 
+/*
+    Puts all the negative numbers in front of all the positive numbers
+*/
 void organiseNumbers(int *numbers, int len) {
     for(int i = 0, j = 0; i < len; i++)
         if(numbers[i] < 0) swap(numbers, i, j++);
 }
 
+/*
+    Swaps two numbers
+*/
 void swap(int *numbers, int a, int b) {
     int t = numbers[a];
     numbers[a] = numbers[b];
     numbers[b] = t;
 }
 
+/*
+    prints the content of an array
+*/
 void printNumbers(int numbers[], int len) {
     printf("[");
     for(int i = 0; i < len; i++) {

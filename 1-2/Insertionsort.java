@@ -1,25 +1,44 @@
+/**
+ * @author Kalle Elmdahl 21/09/20 (updated 21/09/23)
+ * The code shows an implementation of insertion sort with some extras
+ * The code is for an assignment from the KTH-course ID1020
+ * The code is based on examples from https://algs4.cs.princeton.edu/home/
+ */
 import java.util.Scanner;
 
 /**
- * insertionsort
+ * insertionsort an integer array
  */
 public class Insertionsort {
-
-    public static int countInversions(int[] numbers) {
-        int inversions = 0;
-        for(int i = 1; i < numbers.length; i++)
-            for(int j = i - 1; j >= 0 && numbers[j] > numbers[i]; j--)
-                ++inversions;
-        
-        return inversions;
+    /**
+     * Count the number of needed inversions of an array for it to be sorted
+     * @param numbers the array to be checked
+     */
+    public static void countInversions(int[] numbers) {
+        StringBuilder s = new StringBuilder("Inversions:\n");
+        for(int i = 0; i < numbers.length; i++)
+            for(int j = i + 1; j < numbers.length; j++)
+                if(numbers[j] < numbers[i])
+                    s.append("[" + i + "," + numbers[i] + "], [" + j + ", " + numbers[j] + "]\n");
+        System.out.println(s.toString());
     }
-
+    
+    /**
+     * Swap two numbers
+     * @param numbers an array of numbers
+     * @param a index of number one
+     * @param b index of number two
+     */
     public static void swap(int[] numbers, int a, int b) {
         int t = numbers[a];
         numbers[a] = numbers[b];
         numbers[b] = t;
     }
 
+    /**
+     * Sort an array using insertion sort
+     * @param numbers the array to be sorted
+     */
     public static void sort(int[] numbers) {
         int swaps = 0;
         for(int i = 1; i < numbers.length; i++)
@@ -29,6 +48,11 @@ public class Insertionsort {
         System.out.println("Swaps: " + swaps);
     }
 
+    /**
+     * Stringifies an integer array
+     * @param numbers the array to be stringified
+     * @return the String representation
+     */
     public static String toString(int[] numbers) {
         StringBuilder s = new StringBuilder("[");
         for(int i = 0; i < numbers.length; i++) {
@@ -38,6 +62,10 @@ public class Insertionsort {
         return s.append("]").toString();
     }
 
+    /**
+     * Main function used for testing the class
+     * @param args arguments from program execution
+     */
     public static void main(String[] args) {
         System.out.print("\n Write 's' to start, 'q' to exit \n$ ");
         Scanner input = new Scanner(System.in);
@@ -51,8 +79,7 @@ public class Insertionsort {
                 numbers[i] = input.nextInt();
             }
             
-            int inversions = countInversions(numbers);
-            System.out.println("Inversions: " + inversions);
+            countInversions(numbers);
             sort(numbers);
             System.out.println("Result: " + toString(numbers));
         }
