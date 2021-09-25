@@ -2,7 +2,6 @@
  * @author Kalle Elmdahl 21/09/20 (updated 21/09/23)
  * The code implements the organiseNumbers function
  * The code is for an assignment from the KTH-course ID1020
- * The code is based on examples from https://algs4.cs.princeton.edu/home/
  */
 #include <stdio.h>
 

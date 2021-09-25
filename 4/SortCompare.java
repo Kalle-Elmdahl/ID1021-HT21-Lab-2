@@ -49,8 +49,8 @@ public class SortCompare {
     private static int partition(int[] a, int lo, int hi) {
         for(int i = lo + 1, j = hi, pivot = a[lo]; ; i++, j--) {
             // Move over i and j to correct position
-            for(; a[i] < pivot && i < hi; i++) {}
-            for(; pivot < a[j] && j > lo; j--) {}
+            for(; a[i] < pivot && i < hi; i++);
+            for(; pivot < a[j] && j > lo; j--);
 
             // check if pointers cross
             if (i < j) 
